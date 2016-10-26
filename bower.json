@@ -1,0 +1,17 @@
+{
+  "name": "list",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "BaloPhilip <f.g.balo@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,110 @@
+<header class="header">
+
+    <div ng-if="!$ctrl.userToken()" class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-5 pull-right btn-center">
+            <a class="btn btn-sm btn-default" href="#!/signup" role="button">Sign up</a>
+            <a class="btn btn-sm btn-default" href="#!/login" role="button">Login</a>
+        </div>
+    </div>
+
+    <div ng-if="$ctrl.userToken()" class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 pull-right btn-center">
+            <a ng-click="$ctrl.logout()" class="btn btn-sm btn-default" href="#!/product/{{$ctrl.products[$ctrl.productId-1].id}}" role="button">Logout</a>
+        </div>
+    </div>
+
+</header>
+<hr/>
+
+
+<div class="container">
+
+    <div class="row product">
+        <div class="col-lg-3  col-md-4  col-sm-5 col-xs-6">
+
+            <div class="product__img">
+                <img ng-src="{{$ctrl.urlImg}}/{{$ctrl.products[$ctrl.productId-1].img}}" class=""/>
+            </div>
+        </div>
+        <div class="col-lg-9  col-md-8  col-sm-7 col-xs-6">
+            <h3 class="text-center">{{$ctrl.products[$ctrl.productId-1].title}}</h3>
+            <hr/>
+
+            <p class="product__description">Product Description</p>
+            <p>{{$ctrl.products[$ctrl.productId-1].text}}</p>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <hr/>
+        </div>
+    </div>
+
+    <div ng-if="$ctrl.userToken()">
+
+        <div class="row new-review">
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1  col-sm-10 col-sm-offset-1 col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-1  col-md-1  col-sm-1 col-xs-1">
+                                <p>Rate:</p>
+                            </div>
+                            <div class="col-lg-1  col-md-1  col-sm-2 col-xs-2">
+                                <select ng-model="$ctrl.newReview.rate" ng-options="val for val in $ctrl.valuesOption"
+                                        class="form-control input-sm">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12  col-md-12  col-sm-12 col-xs-12">
+                            <textarea class="new-review__textarea form-control"
+                                      ng-model="$ctrl.newReview.text">
+                            </textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col new-review__btn">
+                                <button class="btn btn-default btn-sm"
+                                        ng-click="$ctrl.addReview($ctrl.newReview)">Submit Review
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1  col-sm-10 col-sm-offset-1 col-xs-12 review">
+                <h4>Reviews</h4>
+                <ul class="review__product list-group">
+                    <li ng-repeat="review in $ctrl.reviews"
+                        class="list-group-item">
+                        <p class="review__product_username">
+                        <span>
+                            Username:
+                            {{review.created_by.username}}
+                            at {{review.created_at | date: "dd.MM.yyyy HH:mm:ss"}}
+                        </span>
+                        </p>
+                        <p>
+                            Rate: {{review.rate}}
+                        </p>
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                {{review.text}}
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<footer></footer>

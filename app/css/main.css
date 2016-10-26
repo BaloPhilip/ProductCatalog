@@ -1,0 +1,52 @@
+.header {
+  height: 50px; }
+
+.header__link {
+  margin-top: 30px;
+  margin-right: 30px; }
+
+.list-product {
+  list-style: none; }
+
+.list-product li {
+  height: 115px;
+  padding-top: 15px; }
+
+.img-left {
+  float: left;
+  width: 100px;
+  height: 100px;
+  padding: 1em; }
+
+.product__img {
+  background-color: white;
+  float: left;
+  min-height: 200px;
+  overflow: hidden;
+  position: relative;
+  min-width: 300px;
+  margin-left: 20px; }
+
+.product__description {
+  font-size: 20px; }
+
+.review__product li {
+  margin-top: 10px;
+  min-height: 70px;
+  padding-top: 15px; }
+
+.review__product_username {
+  font-style: italic; }
+
+.review__product_comment {
+  padding: 10px; }
+
+.new-review__textarea {
+  resize: none;
+  margin-top: 10px; }
+
+.new-review__btn {
+  margin: 15px 0 0 20px; }
+
+.btn-center {
+  margin-top: 30px; }

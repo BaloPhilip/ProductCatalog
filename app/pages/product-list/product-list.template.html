@@ -1,0 +1,39 @@
+<header class="header">
+
+    <div ng-if="!$ctrl.userToken()" class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-5 pull-right btn-center">
+            <a class="btn btn-sm btn-default" href="#!/signup" role="button">Sign up</a>
+            <a class="btn btn-sm btn-default" href="#!/login" role="button">Login</a>
+        </div>
+    </div>
+
+    <div ng-if="$ctrl.userToken()" class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 pull-right btn-center">
+            <a ng-click="$ctrl.logout()" class="btn btn-sm btn-default" href="#" role="button">Logout</a>
+        </div>
+    </div>
+
+</header>
+<hr/>
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+            <ul class="list-product">
+                <li ng-repeat="product in $ctrl.products" class="thumbnail">
+                    <a href="#!/product/{{product.id}}" class="img-left">
+                        <img ng-src="{{$ctrl.urlImg}}/{{product.img}}" alt="{{product.title}}">
+                    </a>
+                    </a>
+                    <a href="#!/product/{{product.id}}">{{product.title}}</a>
+                    <p>{{product.text}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<footer></footer>
