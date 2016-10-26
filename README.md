@@ -1,4 +1,4 @@
-# TodoList
+# ProductCatalog
 
 <h2>Installation</h2>
 
